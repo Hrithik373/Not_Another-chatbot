@@ -1,0 +1,21 @@
+name: Keep Render deployment warm
+
+# Render's free tier spins a web service down after ~15 min of inactivity,
+# causing a 30-60s cold start on the next request. This pings the cheap
+# health endpoint (a local status check, not an LLM call — costs nothing on
+# the Lyzr side) often enough to keep the instance warm.
+
+on:
+  schedule:
+    - cron: "*/10 * * * *"  # every 10 minutes
+  workflow_dispatch: {}  # allows manual "Run workflow" from the Actions tab
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping /api/health
+        run: |
+          curl -sf --max-time 30 https://not-another-chatbot.onrender.com/api/health \
+            && echo "OK: instance is warm" \
+            || echo "Ping failed or timed out — instance may be cold-starting, next ping will retry"
