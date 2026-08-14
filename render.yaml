@@ -1,0 +1,34 @@
+services:
+  - type: web
+    name: auto-remediation-console
+    runtime: python
+    rootDir: harness
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn server:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/health
+    envVars:
+      # Secrets — Render prompts for these during setup, never read from
+      # this file or committed to the repo.
+      - key: LYZR_API_KEY
+        sync: false
+      - key: LYZR_AGENT_ID
+        sync: false
+      - key: LYZR_USER_ID
+        sync: false
+      # Optional public-demo guards for POST /api/batch — see
+      # harness/README.md "Reviewer notes". Leave PUBLIC_BATCH_TOKEN unset
+      # to rely on the cooldown alone.
+      - key: PUBLIC_BATCH_TOKEN
+        sync: false
+      - key: BATCH_MIN_INTERVAL_SECONDS
+        value: "20"
+      # Non-secret defaults
+      - key: TOOLS_ENABLED
+        value: "1"
+      - key: VOTE_K
+        value: "1"
+      - key: LYZR_MOCK
+        value: "0"
+      - key: PYTHON_VERSION
+        value: "3.12.10"
