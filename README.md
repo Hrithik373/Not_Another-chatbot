@@ -2,11 +2,7 @@
 
 Lyzr Agent Studio take-home submission. Quick links below; the engineering
 detail (setup, run commands, pipeline design, reproducible numbers) lives in
-[`harness/README.md`](harness/README.md). For a full technical walkthrough —
-why every design decision was made, how each pipeline stage works, the bugs
-found and fixed along the way, and a line-by-line map from the assignment's
-requirements to where each is satisfied — see
-[**`ARCHITECTURE.md`**](ARCHITECTURE.md).
+[`harness/README.md`](harness/README.md).
 
 ## Links
 
@@ -18,7 +14,6 @@ requirements to where each is satisfied — see
 | 📄 **Scoping note** (Part 1, 1 page) | [PDF](https://github.com/Hrithik373/Not_Another-chatbot/blob/main/harness/docs/scoping_note.pdf) · [Markdown source](harness/docs/scoping_note.md) |
 | 📄 **Optimization write-up + results table** (Part 2) | [PDF](https://github.com/Hrithik373/Not_Another-chatbot/blob/main/harness/docs/optimization_writeup.pdf) · [Markdown source](harness/docs/optimization_writeup.md) |
 | 📘 **Full README** (setup, pipeline, reviewer notes) | [`harness/README.md`](harness/README.md) |
-| 🏗️ **Architecture deep-dive** (why + how, every component, requirement traceability) | [`ARCHITECTURE.md`](ARCHITECTURE.md) |
 
 ## Demo run
 
