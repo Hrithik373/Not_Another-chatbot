@@ -33,7 +33,7 @@ tool — lives in Python around it. Measured against the live agent:
   optimization write-up for the literal `python run.py` output this is
   drawn from
 
-## Run it yourself
+## Demo run
 
 ```bash
 cd harness
