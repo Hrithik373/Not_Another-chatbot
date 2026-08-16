@@ -15,24 +15,6 @@ detail (setup, run commands, pipeline design, reproducible numbers) lives in
 | 📄 **Optimization write-up + results table** (Part 2) | [PDF](https://github.com/Hrithik373/Not_Another-chatbot/blob/main/harness/docs/optimization_writeup.pdf) · [Markdown source](harness/docs/optimization_writeup.md) |
 | 📘 **Full README** (setup, pipeline, reviewer notes) | [`harness/README.md`](harness/README.md) |
 
-## What this is
-
-The Lyzr agent is a thin, stateless classifier; all the intelligence that
-makes this cheap and accurate — noise filtering, dedup/clustering,
-closed-set validation, confidence gating, and an agentic service-ownership
-tool — lives in Python around it. Measured against the live agent:
-
-- **455 → 15 real LLM calls** (noise filter + dedup collapse the corpus to
-  10 unique incident signatures; 5 of those trigger one grounded
-  tool-assisted follow-up)
-- **100% macro-F1, 100% root-cause accuracy**, confirmed twice back-to-back
-  against the real API
-- **0% free-form violations**, **96.9% cost cut** vs. a naive one-call-per-event
-  baseline
-- All 5 of the assignment's targets pass — see the results table in the
-  optimization write-up for the literal `python run.py` output this is
-  drawn from
-
 ## Demo run
 
 ```bash
